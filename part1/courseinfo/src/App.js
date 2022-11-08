@@ -1,23 +1,23 @@
-const Header = props => (<h1>{props.courseName}</h1>)
+const Header = ({ courseName }) => (<h1>{courseName}</h1>)
 
-const Part = props => (
+const Part = ({ part }) => (
     <p>
-        {props.part.name} {props.part.exercises}
+        {part.name} {part.exercises}
     </p>
 )
 
-const Content = props => {
+const Content = ({ parts }) => {
     return (
         <div>
-            <Part part={props.parts[0]} />
-            <Part part={props.parts[1]} />
-            <Part part={props.parts[2]} />
+            <Part part={parts[0]} />
+            <Part part={parts[1]} />
+            <Part part={parts[2]} />
         </div>
     )
 }
 
-const Total = props => {
-    const sumExercises = props.parts.reduce((sum, obj) => sum + obj.exercises, 0)
+const Total = ({ parts }) => {
+    const sumExercises = parts.reduce((sum, obj) => sum + obj.exercises, 0)
     return (
         <p>
             Number of exercises {sumExercises}
