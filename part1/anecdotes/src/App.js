@@ -44,7 +44,8 @@ const App = () => {
     }
 
     const handleNextAnecdote = () => {
-        const randomIndex = randomArrayElementIndex(anecdotes.length)
+        let randomIndex = selected
+        while (randomIndex === selected) randomIndex = randomArrayElementIndex(anecdotes.length)
         setSelected(randomIndex)
     }
 
