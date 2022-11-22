@@ -1,4 +1,5 @@
 require('dotenv').config()
+const cors = require('cors')
 const express = require('express')
 const morgan = require('morgan')
 const Person = require('./models/person')
@@ -7,6 +8,7 @@ const app = express()
 
 app.use(express.static('build'))
 app.use(express.json())
+app.use(cors())
 app.use(
   morgan((tokens, req, res) => {
     let format = [
